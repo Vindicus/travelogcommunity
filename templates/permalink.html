@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block optionalCSS %}
+  <link rel="stylesheet" href="../stylesheets/blog.css">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1>{{post.subject}}</h1>
+  <section class="row">
+    <div class="col l12 m12 s12">
+    <div class="post_date">
+      <p>Post Date: {{post.created}}</p>
+      <p>Posted By: {{post.creator_name}}</p>
+    </div>
+    <p class="permalink_post">{{post.post}}</p>
+    </div>
+  </section>  
+  <hr>
+    <div class="activity">
+      {% if user == post.creator %}
+        <span>{{post.likes}}</span><i class="small material-icons like activity-icon">thumb_up</i>
+        <span>{{post.dislikes}}</span><i class="small material-icons dislike activity-icon">thumb_down</i>
+        <a href="/blog/edit/{{post.key().id()}}"><i class="small material-icons comment-edit">mode_edit</i></a>
+        <a href="/blog/delete/{{post.key().id()}}"><i class="small material-icons comment-delete">delete</i></a>
+      {% else %}
+        <span>{{post.likes}}</span><a class="fire" data-action="like"><i class="small material-icons like activity-icon">thumb_up</i></a>
+        <span>{{post.dislikes}}</span><a class="fire" data-action="dislike"><i class="small material-icons dislike activity-icon">thumb_down</i></a>
+      {% endif %}
+    </div>
+    <section class="row">
+      <h3>Comments</h3>
+    <div class="col l12 m12 s12 comment">
+        {% for data in comment_query %}
+        <div class="post_date">
+          <p>Post Date: {{data.last_created}}</p>
+          <p>Posted By: {{data.by_user_name}}</p>
+        </div>
+        <div class="comment-box">
+          <p class="comment-wrap">{{data.comment}}</p>
+        </div>
+        <hr>
+        {% if user == data.user_id %}
+        <a class="edit" data-method="{{data.key().id()}}"><i class="small material-icons comment-edit">mode_edit</i></a>
+        <a class="delete" data-method="{{data.key().id()}}"><i class="small material-icons comment-delete">delete</i></a>
+        {% endif %}
+        {% if user == post.creator and not user == data.user_id %}
+        <a class="delete" data-method="{{data.key().id()}}"><i class="small material-icons comment-delete">delete</i></a>
+        {% endif %}
+    {% endfor %}
+    </div>
+    </section> 
+    <section class="row">
+      <form method="post">
+      <div class="input-field">
+        <label>Comment</label>
+            {% if commentdata.comment %}
+            <textarea class="materialize-textarea comment-edit-textarea comment-edit-tx" name="comment-post"> {{commentdata.comment}}</textarea>
+            {% else %}
+            <textarea class="materialize-textarea comment-edit-textarea" name="comment-post">{{commentdata.comment}}
+            </textarea>
+            {% endif %}
+      </div>
+        <input type="hidden" name="action" value="comment">
+        {% if commentdata %}
+          <input type="hidden" name="update" value={{commentdata.key().id()}}>
+        {% endif %}
+        <button class="waves-effect waves-light btn">Comment</button>
+        <p>{{error}}</p>
+      </form>
+    </section>
+</div>
+{% endblock %}

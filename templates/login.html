@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block optionalCSS %}
+  <link rel="stylesheet" href="../stylesheets/signup_login.css">
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+  <section class="row">
+    <div class="col l12 m12 s12">
+      <h1>Login</h1>
+      <form method="post">
+          <div class="input-field">
+            <label for="username" class="form-labels">Username</label>
+            <input id="username" type="text" name="username">
+            <p class="input_errors">{{username_error}}</p>
+          </div>
+          <div class="input-field">
+            <label for="password" class="form-labels">Password</label>
+            <input id="password" type="password" name="password"> 
+            <p class="input_errors">{{password_error}}</p>
+          </div>
+          <p class="input_errors">{{authentication_error}}</p>
+          <button class="waves-effect waves-light btn btn_register">Login</button>
+      </form>
+    </div>
+  </section>
+</div>
+{% endblock %}

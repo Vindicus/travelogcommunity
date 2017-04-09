@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <title>TraveLog</title>
+    <!--Materialize CDN CSS & Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Google Raleway Font Thin 100-->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="../stylesheets/main.css">
+    {% block optionalCSS%} {% endblock %}
+  </head>
+  <body>
+    <nav class="nav-backdrop">
+      <div class="nav-wrapper">
+        <a href="/" class="logo"><i class="medium material-icons room-icon">room</i>TraveLog</a>
+        <ul class="right nav-items">
+          {% if registered_user %}
+            <li><a href="/blog">Community</a></li>
+            <li><a href="/blog/newpost">New Post</a></li>
+            <li><a href="/blog/logout">Logout</a></li>
+          {% else %}
+          <li><a href="/blog/signup">Sign Up</a></li>
+          <li><a href="/blog/login">Login</a></li>
+          {% endif %}
+        </ul>  
+      </div>  
+    </nav>
+    {% block content %} {% endblock %}
+    <!-- jQuery & Materialize CDN JS -->
+    <script   src="https://code.jquery.com/jquery-3.0.0.min.js"   integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="   crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <!-- Custom jQuery-->
+    <script src="/javascript/main.js"></script>
+    <script>
+          /* Note* Not sure why putting this code into main.js does not work so I put it here */
+          /* action is initiated when user clicks cancel on posts */ 
+    $('.cancel').click(function(e){ 
+        e.preventDefault();
+        var input = $("<input>").attr("type", "hidden").attr("name", "action").val("cancel");
+        $(".form-append").append($(input));
+        $(".form-append").submit();
+        });  
+    </script>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+html,
+body{
+  height:100%;
+}
+
+/* Earth background image obtained from Flickr.com */
+.background-backdrop{
+    background:url("earth.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index: -10;
+}
+
+.nav-backdrop{
+    background-color:transparent;
+    box-shadow: none;
+}
+
+a.logo{
+    padding-left: 20px;
+    font-size:1.5em;
+    color: white;
+    font-weight: 600;
+    text-transform:uppercase;  
+}
+
+a.logo i.room-icon{
+    display:inline;
+    color:red;
+}
+
+a.logo i.room-icon:hover{
+    color:green;
+}
+
+h1{
+    font-size:3em;
+    text-align:center;
+    margin:40px 0 0 0;
+    text-transform: uppercase;
+    font-family: 'Raleway', sans-serif;
+    color:white;
+}
+
+.sub-heading{
+    font-size:2em;
+    text-transform: uppercase;
+    text-align:center;
+    font-family: 'Raleway', sans-serif;
+    color:white;
+}
+
+.sub-heading .room-icon{
+    color:red;
+}
+
+.logo-span{
+    font-weight:600;
+    font-family: "Roboto", sans-serif;
+}
+
+.btn_wrapper{
+    text-align:center;
+}
+
+.btn_get-started{
+    text-align: center;
+    margin:0 auto;
+    background-color:#435251;
+}
+
+ul.nav-items li a{
+    padding:0 15px 0 15px;
+    margin-right: 15px;
+    color:white;
+}
+
+ul.nav-items li a:hover{
+    background-color:white;
+    cursor:pointer;
+    color:black;
+}
+
+.input-field input[type=text],
+.input-field input[type=password],
+.input-field input[type=email]{
+     color:white;
+    font-family: "Raleway", sans-serif;
+}
+
+.input-field input[type=text]:focus,
+.input-field input[type=password]:focus,
+.input-field input[type=email]:focus{
+     border-bottom: 1px solid #FFF;
+}
+
+.input_errors{
+    color:red;
+}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block optionalCSS %}
+  <link rel="stylesheet" href="../stylesheets/blog.css">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1>The Post Community</h1>
+  {% for data in display_data %}
+  <section class="row">
+    <div class="col l12 m12 s12">
+    <div class="post_date">
+      <p>Post Date: {{data.created}}</p>
+      <p>Posted By: {{data.creator_name}}</p>
+    </div>
+    <h4 class="post_subject">{{data.subject}}</h4>
+    <p class="post_post">{{data.post}}</p>
+    </div>
+  </section>  
+  <hr>
+    <div class="activity">
+      <a href="/blog/{{data.key().id()}}"><i class="small material-icons view activity-icon" title="View Post">visibility</i></a>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}

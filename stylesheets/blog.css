@@ -1,0 +1,70 @@
+a.logo{
+    color:#b18484;
+}
+
+ul.nav-items li a{
+    color:#b18484;
+}
+
+h1,
+h3{
+    color:#b18484;
+    margin-bottom: 40px;
+    font-family: "Raleway",sans-serif;
+    text-align:center;
+}
+
+.post_date{
+    text-align:right;
+}
+
+.post_subject{
+    text-align:center;
+    font-weight: 300;
+}
+
+.post_post{
+    text-overflow:ellipsis;
+    overflow:hidden;
+}
+
+.activity{
+    margin:0px 10px 10px 10px;
+}
+
+.like{
+    color: #7d8dbd;
+}
+
+.dislike{
+    color:rgba(132,56,56,0.87);
+}
+.activity-icon{
+    margin-left: 5px;
+}
+
+.view:hover{
+    color:green;
+}
+
+/*Individual Post custom CSS */
+.permalink_post{
+    word-wrap: break-word;
+}
+.fire i:hover,
+.comment-edit:hover,
+.comment-delete:hover{
+    color:grey;
+    cursor:pointer;
+}
+.comment-box{
+    margin-bottom: 20px;
+}
+
+.comment-wrap{
+    word-wrap:break-word;
+}
+
+.input-field input[type=text]{
+    color:black;
+}

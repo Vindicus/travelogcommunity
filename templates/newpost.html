@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block optionalCSS %}
+  <link rel="stylesheet" href="../stylesheets/blog.css">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <section class="row">
+      <h1>New Post</h1>
+      <form method="post">
+      <div class="input-field">
+        <label>Subject</label>
+        <input type="text" name="subject" class="subject" value="{{subject}}">
+        </div>
+        <textarea class="materialize-textarea" name="post">{{post}}</textarea>
+        <button class="waves-effect waves-light btn">Submit</button>
+        <p>{{error}}</p>
+      </form>
+  </section>
+</div>
+{% endblock %}
